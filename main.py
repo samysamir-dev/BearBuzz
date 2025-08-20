@@ -42,7 +42,7 @@ up_down = "🔺" if difference > 0 else "🔻"
 
 difference_percent = round((difference / float(yesterday_closing_price)) * 100, 2)
 
-if abs(difference) > 5:
+if abs(difference_percent) > 5:
     news_response = requests.get(NEWS_ENDPOINT, params=news_params)
     news_response.raise_for_status()
     articles = news_response.json()["articles"]
